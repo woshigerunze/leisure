@@ -15,6 +15,18 @@ struct my_add_pointer<T,0>
     using type=T;
 };
 
+template <typename T>
+struct my_remove_pointer
+{
+    using type = T;
+};
+
+template <typename T>
+struct my_remove_pointer<T*>
+{
+    using type = T;
+};
+
 template <typename ...Args>
 auto sum_fold(Args... args)
 {
@@ -23,7 +35,5 @@ auto sum_fold(Args... args)
 
 int main()
 {
-    cout<<is_same<my_add_pointer<int,4>::type,int****>::value<<endl;
-    cout<<is_same<remove_const<const int>::type,int>::value<<endl;
-    cout<<1;
+    cout<<is_same<my_remove_pointer<int*>::type,int>::value<<endl;
 }
