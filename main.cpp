@@ -24,4 +24,5 @@ auto sum_fold(Args... args)
 int main()
 {
     cout<<is_same<my_add_pointer<int,4>::type,int****>::value<<endl;
+    cout<<1<<endl;
 }
