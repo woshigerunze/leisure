@@ -2,6 +2,7 @@
 #include <vector>
 #include <numeric>
 #include <type_traits>
+#include <boost/array.hpp>
 using namespace std;
 template <typename T,int N>
 struct my_add_pointer
@@ -85,6 +86,8 @@ public:
     }
     virtual ~B(){cout<<"delete B"<<endl;}
 };
+
+
 
 int main()
 {
