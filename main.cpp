@@ -2,8 +2,8 @@
 #include <vector>
 #include <numeric>
 #include <type_traits>
-#include <boost/smart_ptr.hpp>
-#include <boost/make_shared.hpp>
+#include <sstream>
+#include <boost/asio.hpp>
 using namespace std;
 template <typename T,int N>
 struct my_add_pointer
@@ -63,7 +63,7 @@ class B:public A
 private:
     int b;
 public:
-    B(int _b):b(_b){}
+    B(int _b=0):b(_b){}
     B(const B& rhs):A(rhs)
     {
         if(&rhs==this)return;
@@ -88,7 +88,20 @@ public:
     virtual ~B(){cout<<"delete B"<<endl;}
 };
 
-
+template <typename T>
+typename enable_if<is_same<T,int>::value,T>::type f(T t)
+{
+    return '1';
+}
+void print(const boost::system::error_code & e)
+{
+    std::cout <<"hello world!" << std::endl;
+}
 int main()
 {
+    boost :: asio :: io_context io;
+    boost :: asio :: steady_timer t(io,boost :: asio :: chrono :: seconds(5));
+    t.async_wait(print);
+    cout<<1<<endl;
+    io.run();
 }
