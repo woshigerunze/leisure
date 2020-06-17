@@ -2,7 +2,8 @@
 #include <vector>
 #include <numeric>
 #include <type_traits>
-#include <boost/array.hpp>
+#include <boost/smart_ptr.hpp>
+#include <boost/make_shared.hpp>
 using namespace std;
 template <typename T,int N>
 struct my_add_pointer
@@ -88,8 +89,6 @@ public:
 };
 
 
-
 int main()
 {
-
 }
