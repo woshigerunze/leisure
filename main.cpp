@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <type_traits>
+#include <boost/thread.hpp>
 #include <algorithm>
 #include <thread>
 using namespace std;
@@ -16,13 +17,8 @@ typename enable_if<is_same<T,int>::value,T>::type f(T t)
 {
     cout<<1<<endl;
 }
-template <typename T>
-void g(T t)
-{
-    if constexpr(is_same<T,int>::value)cout<<1<<endl;
-    else cout<<2<<endl;
-}
+
 int main()
 {
-    g(char());
+
 }
