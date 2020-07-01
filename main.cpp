@@ -21,14 +21,7 @@ void print_func(shared_ptr<int> p)
 {
     cout<<"use_count="<<p.use_count()<<" val="<<*p<<endl;
 }
+
 int main()
 {
-    shared_ptr<int> p(new int(100));
-    shared p1(p);
-    shared p2(p);
-    p1.print();
-    p2.print();
-    *p=20;
-    print_func(p);
-    p1.print();
 }
