@@ -21,7 +21,11 @@ void print_func(shared_ptr<int> p)
 {
     cout<<"use_count="<<p.use_count()<<" val="<<*p<<endl;
 }
-
+template <typename T>
+constexpr bool isint(){return false;}
+template <>
+constexpr bool isint<int>(){return true;}
 int main()
 {
+    cout<<isint<int><<endl;
 }
